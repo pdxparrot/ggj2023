@@ -84,7 +84,9 @@ namespace pdxpartyparrot.Game.Players
 
             _playerContainer = new GameObject("Players");
 
-            Core.Network.NetworkManager.Instance.RegisterPlayerPrefab(PlayerPrefab.NetworkPlayer);
+            if(null != PlayerPrefab) {
+                Core.Network.NetworkManager.Instance.RegisterPlayerPrefab(PlayerPrefab.NetworkPlayer);
+            }
             Core.Network.NetworkManager.Instance.ApprovalCheckSuccessEvent += ApprovalCheckSuccessEventHandler;
 
             InitDebugMenu();

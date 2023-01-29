@@ -30,8 +30,10 @@ namespace pdxpartyparrot.Game.State
             base.OnEnter();
 
             if(null != GameStateManager.Instance.GameUIManager) {
-                Menu = GameStateManager.Instance.GameUIManager.InstantiateUIPrefab(_menuPrefab);
-                Menu.Initialize();
+                if(null != _menuPrefab) {
+                    Menu = GameStateManager.Instance.GameUIManager.InstantiateUIPrefab(_menuPrefab);
+                    Menu.Initialize();
+                }
 
                 TitleScreen = GameStateManager.Instance.GameUIManager.InstantiateUIPrefab(_titleScreenPrefab);
             } else {

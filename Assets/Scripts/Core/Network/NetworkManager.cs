@@ -233,13 +233,17 @@ namespace pdxpartyparrot.Core.Network
 
         public void UnregisterPlayerPrefab()
         {
+            if(null == playerPrefab) {
+                Debug.LogWarning("[NetworkManager]: No player prefab to unregister!");
+                return;
+            }
+
             Debug.Log($"[NetworkManager]: Unregistering player prefab '{playerPrefab.name}'");
 
 #if USE_NETWORKING
             UnregisterNetworkPrefab(playerPrefab.GetComponent<NetworkBehaviour>());
 #endif
 
-            // TODO: warn if not set?
             playerPrefab = null;
         }
 
