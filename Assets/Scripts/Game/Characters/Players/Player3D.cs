@@ -105,8 +105,9 @@ namespace pdxpartyparrot.Game.Characters.Players
             Debug.Log($"Spawning player (clientId={NetworkPlayer.OwnerClientId}, isLocalPlayer={IsLocalActor})");
 
             // spawnpoint doesn't initialize players, so we have to do it before calling the base OnSpawn
-            Initialize(Guid.NewGuid());
-            Behavior.Initialize(GameStateManager.Instance.PlayerManager.PlayerBehaviorData);
+            // TODO: SpawnRcp() is calling these but I'm not sure if that's reliable?
+            /*Initialize(Guid.NewGuid());
+            Behavior.Initialize(GameStateManager.Instance.PlayerManager.PlayerBehaviorData);*/
 
             NetworkPlayer.SpawnRpc(Id.ToString());
 

@@ -48,4 +48,4 @@ MonoBehaviour:
   _debugInput: 0
   _playerData: {fileID: 11400000, guid: 68d9c5ae1007330e3be24a45e790c070, type: 2}
   _playerBehaviorData: {fileID: 11400000, guid: 6ae9e89125a45213b888d31fe0a50952, type: 2}
-  _playerActorPrefab: {fileID: 0}
+  _playerActorPrefab: {fileID: 4593811131032745910, guid: 6d57ed387727a59879e4d110eae2c376, type: 3}

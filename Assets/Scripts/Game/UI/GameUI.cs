@@ -21,7 +21,9 @@ namespace pdxpartyparrot.Game.UI
 
         private void Awake()
         {
-            _fadeOverlay.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            if(null != _fadeOverlay) {
+                _fadeOverlay.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
         }
 
         #endregion

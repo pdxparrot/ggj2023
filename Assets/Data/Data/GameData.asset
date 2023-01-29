@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   _worldLayer: World
-  _viewerPrefab: {fileID: 0}
+  _viewerPrefab: {fileID: 2960816460511488218, guid: 4d312a15ca2874b8da1eca525cd5c49d, type: 3}
   _viewportSize: 10
   _fov: 60
   _distance: 10
