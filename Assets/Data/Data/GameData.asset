@@ -22,4 +22,4 @@ MonoBehaviour:
   _spawnPlayersOnLoad: 1
   _floatingTextPrefab: {fileID: 0}
   _floatingTextPoolSize: 10
-  _mainGameStatePrefab: {fileID: 0}
+  _mainGameStatePrefab: {fileID: 2346455735517151825, guid: ac82e2f4badcd803c82051148033b5a8, type: 3}
