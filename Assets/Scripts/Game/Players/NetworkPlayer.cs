@@ -73,8 +73,9 @@ namespace pdxpartyparrot.Game.Players
         {
             Debug.Log($"Network player {id} spawn");
 
-            Actor.Initialize(Guid.Parse(id));
-            Actor.Behavior.Initialize(GameStateManager.Instance.PlayerManager.PlayerBehaviorData);
+            // TODO: these are already called locally ... but this causes them to be called again locally :(
+            /*Actor.Initialize(Guid.Parse(id));
+            Actor.Behavior.Initialize(GameStateManager.Instance.PlayerManager.PlayerBehaviorData);*/
         }
 
         #endregion
