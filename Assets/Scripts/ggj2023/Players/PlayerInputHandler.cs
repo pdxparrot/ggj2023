@@ -43,7 +43,7 @@ namespace pdxpartyparrot.ggj2023.Players
             }
 
             if(context.performed) {
-                //GTODO: amePlayer.PlayerBehavior.ActionPerformed(BeaverBehaviorComponent.AttackAction.Default);
+                GamePlayer.PlayerBehavior.ActionPerformed(BeaverBehavior.AttackAction.Default);
             }
         }
 
@@ -54,7 +54,7 @@ namespace pdxpartyparrot.ggj2023.Players
             }
 
             if(context.performed) {
-                //TODO: GamePlayer.PlayerBehavior.ActionPerformed(BeaverBehaviorComponent.StrongAttackAction.Default);
+                GamePlayer.PlayerBehavior.ActionPerformed(BeaverBehavior.StrongAttackAction.Default);
             }
         }
 

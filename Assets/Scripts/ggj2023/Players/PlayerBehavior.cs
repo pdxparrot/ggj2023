@@ -1,10 +1,12 @@
-using UnityEngine.Assertions;
-
 using pdxpartyparrot.Core.Data.Actors.Components;
 using pdxpartyparrot.ggj2023.Data.Players;
 
+using UnityEngine;
+using UnityEngine.Assertions;
+
 namespace pdxpartyparrot.ggj2023.Players
 {
+    [RequireComponent(typeof(BeaverBehavior))]
     public sealed class PlayerBehavior : Game.Characters.Players.PlayerBehavior
     {
         public PlayerBehaviorData GamePlayerBehaviorData => (PlayerBehaviorData)PlayerBehaviorData;
