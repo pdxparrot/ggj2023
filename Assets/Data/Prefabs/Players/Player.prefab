@@ -250,6 +250,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8579932832277843386}
   - component: {fileID: 5088206647935586243}
+  - component: {fileID: 787579418628897083}
+  - component: {fileID: 8606223452111802251}
+  - component: {fileID: 2672687551389757960}
   m_Layer: 10
   m_Name: Behavior
   m_TagString: Untagged
@@ -286,6 +289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
   _behaviorData: {fileID: 0}
+  _spineAnimationHelper: {fileID: 0}
+  _spineSkinHelper: {fileID: 0}
   _spriteAnimationHelper: {fileID: 0}
   _animator: {fileID: 0}
   _pauseAnimationOnPause: 1
@@ -293,7 +298,10 @@ MonoBehaviour:
   _respawnEffect: {fileID: 0}
   _despawnEffect: {fileID: 0}
   _isAlive: 0
-  _components: []
+  _components:
+  - {fileID: 787579418628897083}
+  - {fileID: 8606223452111802251}
+  - {fileID: 2672687551389757960}
   _isGrounded: 0
   _isSliding: 0
   _idleEffect: {fileID: 0}
@@ -301,6 +309,51 @@ MonoBehaviour:
   _moveDirection: {x: 0, y: 0, z: 0}
   _lookDirection: {x: 0, y: 0, z: 0}
   _lookRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &787579418628897083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454347789793802809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726bd4c359f8c4e7fac6dfeb27dea307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 3a6b2842c3e7c9ae6b42951f5e932901, type: 2}
+  _groundedEffect: {fileID: 0}
+  _didGroundCheckCollide: 0
+  _groundCheckNormal: {x: 0, y: 0, z: 0}
+  _groundCheckMinDistance: 0
+  _groundSlope: 0
+  _lastGroundedPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &8606223452111802251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454347789793802809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db553933c270eb3f9a8030a143026c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2672687551389757960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454347789793802809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b5004523c9873868b2aad700256959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: ce9771e72e1cc7d7cad66339f01aaa41, type: 2}
+  _jumpEffect: {fileID: 0}
 --- !u!1 &7733430779329382381
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,10 +448,6 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: Player/Look[/Gamepad/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
-    m_ActionName: Player/Fire[/Gamepad/rightTrigger,/Mouse/leftButton]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3644265441085882154}
         m_TargetAssemblyTypeName: pdxpartyparrot.Game.Players.Input.PlayerInputSystemHandler,
@@ -455,6 +504,57 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3644265441085882154}
+        m_TargetAssemblyTypeName: pdxpartyparrot.ggj2023.Players.PlayerInputHandler,
+          com.pdxpartyparrot.ggj2023
+        m_MethodName: OnJumpAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f8b62f12-0519-4b48-b0f4-4cbaf92a6158
+    m_ActionName: Player/Jump[/Keyboard/space,/Gamepad/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3644265441085882154}
+        m_TargetAssemblyTypeName: pdxpartyparrot.ggj2023.Players.PlayerInputHandler,
+          com.pdxpartyparrot.ggj2023
+        m_MethodName: OnAttackAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 38319369-70e1-4b88-ba2b-1d985c790140
+    m_ActionName: Player/Attack[/Keyboard/q,/Gamepad/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3644265441085882154}
+        m_TargetAssemblyTypeName: pdxpartyparrot.ggj2023.Players.PlayerInputHandler,
+          com.pdxpartyparrot.ggj2023
+        m_MethodName: OnStrongAttackAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a2ccc027-c20b-4a93-8405-e341a8ebae2b
+    m_ActionName: Player/Strong Attack[/Keyboard/e,/Gamepad/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
