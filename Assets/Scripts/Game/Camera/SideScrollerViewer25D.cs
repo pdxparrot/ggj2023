@@ -68,6 +68,11 @@ namespace pdxpartyparrot.Game.Camera
 
         public void AddTarget(Actor actor, float weight = 1.0f)
         {
+            if(_targetGroup == null) {
+                Debug.LogWarning("Not adding target with no target group!");
+                return;
+            }
+
             Debug.Log($"Adding viewer target {actor.Id}");
 
             _targetGroup.AddMember(actor.transform, weight, actor.Radius);
@@ -75,6 +80,11 @@ namespace pdxpartyparrot.Game.Camera
 
         public void RemoveTarget(Actor actor)
         {
+            if(_targetGroup == null) {
+                Debug.LogWarning("Not removing target with no target group!");
+                return;
+            }
+
             Debug.Log($"Removing viewer target {actor.Id}");
 
             _targetGroup.RemoveMember(actor.transform);

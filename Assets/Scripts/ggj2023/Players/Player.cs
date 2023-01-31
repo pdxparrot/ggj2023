@@ -24,6 +24,9 @@ namespace pdxpartyparrot.ggj2023.Players
             Assert.IsTrue(PlayerInputHandler is PlayerInputHandler);
 
             Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            // TODO: this may not be exactly what we want? idk
+            Rigidbody.constraints |= RigidbodyConstraints.FreezePositionZ;
         }
 
         #endregion
@@ -54,14 +57,14 @@ namespace pdxpartyparrot.ggj2023.Players
                 return false;
             }
 
-            PlayerGameViewer.FollowTarget(transform);
+            PlayerGameViewer.AddTarget(this);
 
             return true;
         }
 
         public override void OnDeSpawn()
         {
-            PlayerGameViewer.FollowTarget(null);
+            PlayerGameViewer.RemoveTarget(this);
 
             base.OnDeSpawn();
         }
