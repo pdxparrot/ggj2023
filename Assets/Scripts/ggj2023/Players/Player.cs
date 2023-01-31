@@ -23,10 +23,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
             Assert.IsTrue(PlayerInputHandler is PlayerInputHandler);
 
-            Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-            // TODO: this may not be exactly what we want? idk
-            Rigidbody.constraints |= RigidbodyConstraints.FreezePositionZ;
+            Rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
         }
 
         #endregion
