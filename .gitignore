@@ -36,9 +36,10 @@ ExportedObj/
 .vscode/
 .vsconfig
 
-# Unity3D files
-*.meta
-*.asmdef
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
 
 # swap files
 *.swo
