@@ -50,6 +50,38 @@ namespace pdxpartyparrot.ggj2023.NPCs
             Assert.IsTrue(Behavior is BlackberryMonsterBehavior);
         }
 
+        public void Kill()
+        {
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Killing boss {name}!");
+
+            Damage(_health);
+        }
+
+        public void Damage(int amount)
+        {
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Boss {name} hit for {amount}");
+
+            _health -= amount;
+            if(IsDead) {
+                Debug.Log($"Boss {name} is dead!");
+
+                _health = 0;
+                // TODO: animate the death and then despawn
+
+                DeSpawn(false);
+
+                GameManager.Instance.GameOver();
+            }
+        }
+
         #region Spawn
 
         public override bool OnSpawn(SpawnPoint spawnpoint)

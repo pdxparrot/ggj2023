@@ -50,6 +50,40 @@ namespace pdxpartyparrot.ggj2023.NPCs
             Assert.IsTrue(Behavior is VineBehavior);
         }
 
+        public void Kill()
+        {
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Killing vine {name}!");
+
+            Damage(_health);
+        }
+
+        public void Damage(int amount)
+        {
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Vine {name} hit for {amount}");
+
+            _health -= amount;
+            if(IsDead) {
+                Debug.Log($"Vine {name} is dead!");
+
+                _health = 0;
+                // TODO: animate the death and then despawn
+
+                DeSpawn(false);
+
+                NPCManager.Instance.Boss.Damage(NPCManager.Instance.VineData.DeathDamage);
+            }
+
+            NPCManager.Instance.Boss.Damage(amount);
+        }
+
         #region Spawn
 
         public override bool OnSpawn(SpawnPoint spawnpoint)

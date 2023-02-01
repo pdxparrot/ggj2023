@@ -92,14 +92,14 @@ namespace pdxpartyparrot.Game.NPCs
 
         #endregion
 
-        public void RegisterNPC(INPC npc)
+        public virtual void RegisterNPC(INPC npc)
         {
             if(_npcs.Add(npc)) {
                 Debug.Log($"Registered NPC {npc.Id}");
             }
         }
 
-        public void UnregisterNPC(INPC npc)
+        public virtual void UnregisterNPC(INPC npc)
         {
             if(_npcs.Remove(npc)) {
                 Debug.Log($"Unregistered NPC {npc.Id}");
@@ -131,6 +131,8 @@ namespace pdxpartyparrot.Game.NPCs
             }
         }
 
+        #region Debug Menu
+
         private void InitDebugMenu()
         {
             _debugMenuNode = DebugMenuManager.Instance.AddNode(() => "Game.NPCManager");
@@ -153,5 +155,7 @@ namespace pdxpartyparrot.Game.NPCs
             }
             _debugMenuNode = null;
         }
+
+        #endregion
     }
 }

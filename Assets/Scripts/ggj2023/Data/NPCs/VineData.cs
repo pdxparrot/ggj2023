@@ -19,5 +19,10 @@ namespace pdxpartyparrot.ggj2023.Data.NPCs
         private int _attackDamage = 10;
 
         public int AttackDamage => _attackDamage;
+
+        [SerializeField]
+        private int _deathDamage = 10;
+
+        public int DeathDamage => _deathDamage;
     }
 }
