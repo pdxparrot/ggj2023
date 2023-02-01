@@ -23,3 +23,9 @@ MonoBehaviour:
   _floatingTextPrefab: {fileID: 0}
   _floatingTextPoolSize: 10
   _mainGameStatePrefab: {fileID: 2346455735517151825, guid: ac82e2f4badcd803c82051148033b5a8, type: 3}
+  _bossSpawnTag: boss
+  _bossPrefab: {fileID: 663647429021329587, guid: 124167d4ce8905aa283d093c8e8cc172, type: 3}
+  _bossBehaviorData: {fileID: 11400000, guid: 14f753ba16c95076fbd714c54ff5c6ff, type: 2}
+  _vineSpawnTag: vine
+  _vinePrefab: {fileID: 3645395972765467176, guid: 6881c05fc4b0451499d41832a2af2a91, type: 3}
+  _vineBehaviorData: {fileID: 11400000, guid: bc2f22b43357b2d319339446363c299f, type: 2}

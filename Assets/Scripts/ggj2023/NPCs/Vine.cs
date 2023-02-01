@@ -8,9 +8,9 @@ using UnityEngine.Assertions;
 
 namespace pdxpartyparrot.ggj2023.NPCs
 {
-    public sealed class BlackberryMonster : NPC25D
+    public sealed class Vine : NPC25D
     {
-        public BlackberryMonsterBehavior BlackberryMonsterBehavior => (BlackberryMonsterBehavior)NPCBehavior;
+        public VineBehavior VineBehavior => (VineBehavior)NPCBehavior;
 
         #region Unity Lifecycle
 
@@ -38,7 +38,7 @@ namespace pdxpartyparrot.ggj2023.NPCs
         {
             base.Initialize(id);
 
-            Assert.IsTrue(Behavior is BlackberryMonsterBehavior);
+            Assert.IsTrue(Behavior is VineBehavior);
         }
 
         #region Spawn

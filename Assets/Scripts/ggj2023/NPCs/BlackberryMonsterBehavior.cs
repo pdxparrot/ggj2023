@@ -1,5 +1,3 @@
-using System.Linq;
-
 using pdxpartyparrot.Core.Data.Actors.Components;
 using pdxpartyparrot.Game.Characters.NPCs;
 using pdxpartyparrot.ggj2023.Data.NPCs;
