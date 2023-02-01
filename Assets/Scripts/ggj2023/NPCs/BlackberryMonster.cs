@@ -1,5 +1,6 @@
 using System;
 
+using pdxpartyparrot.Core.Util;
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.NPCs;
 
@@ -11,6 +12,14 @@ namespace pdxpartyparrot.ggj2023.NPCs
     public sealed class BlackberryMonster : NPC25D
     {
         public BlackberryMonsterBehavior BlackberryMonsterBehavior => (BlackberryMonsterBehavior)NPCBehavior;
+
+        [SerializeField]
+        [ReadOnly]
+        private int _health;
+
+        public int Health => _health;
+
+        public bool IsDead => Health <= 0;
 
         #region Unity Lifecycle
 
@@ -50,6 +59,8 @@ namespace pdxpartyparrot.ggj2023.NPCs
             }
 
             SetPassive();
+
+            _health = NPCManager.Instance.BossData.MaxHealth;
 
             return true;
         }

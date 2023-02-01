@@ -48,3 +48,5 @@ MonoBehaviour:
   _debugNPCBehavior: 0
   _stuckCheckMs: 500
   _stuckCheckMaxPasses: 2
+  _bossData: {fileID: 11400000, guid: 65dd901081ee690a087228f9a410a5cb, type: 2}
+  _vineData: {fileID: 11400000, guid: 820b5c189edd14dbaa6e48ecd6001fe6, type: 2}
