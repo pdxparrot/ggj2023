@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5179526082986698477}
   - component: {fileID: 4113782350537929941}
   - component: {fileID: 5351928747817055484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4104948525873153737}
   - component: {fileID: 2611791147871249021}
   - component: {fileID: 3645395972765467176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5538356854216429925}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5143276167498390431}
   - component: {fileID: 4323422283731858874}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3712600498958037938}
   - component: {fileID: 4434701770485605778}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Behavior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 1250198235305746968}
   - component: {fileID: 2733439220142216136}
   - component: {fileID: 6806011976918503137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,6 +583,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 16484060ae59c8a4999863d0f01b5c79, type: 3}
       propertyPath: m_Name
       value: Vine WIP
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16484060ae59c8a4999863d0f01b5c79, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
