@@ -168,11 +168,11 @@ namespace pdxpartyparrot.Game.Characters.BehaviorComponents
                 Behavior.IsSliding = _groundSlope >= _data.SlopeLimit;
 
                 if(!wasGrounded && Behavior.IsGrounded && Behavior.IsAlive) {
-                    Behavior.OnIdle();
-
                     GroundedEvent?.Invoke(this, EventArgs.Empty);
                     if(null != GroundedEffect) {
-                        GroundedEffect.Trigger();
+                        GroundedEffect.Trigger(() => Behavior.OnIdle());
+                    } else {
+                        Behavior.OnIdle();
                     }
                 }
             } finally {
