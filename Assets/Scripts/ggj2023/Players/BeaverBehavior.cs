@@ -54,7 +54,15 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public bool IsDead => Health <= 0;
 
-        private bool CanAttack => !IsDead && !_attackEffect.IsRunning && !_strongAttackEffect.IsRunning;
+        public bool IsAttacking => _attackEffect.IsRunning;
+
+        [SerializeField]
+        [ReadOnly]
+        private bool _isStrongAttacking;
+
+        public bool IsStrongAttacking => _isStrongAttacking;
+
+        private bool CanAttack => !IsDead && !IsAttacking && !IsStrongAttacking;
 
         public void Kill()
         {
@@ -106,7 +114,22 @@ namespace pdxpartyparrot.ggj2023.Players
                     return true;
                 }
 
-                _strongAttackEffect.Trigger(() => GamePlayerBehavior.OnIdle());
+                _strongAttackEffect.Trigger();
+                _isStrongAttacking = true;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public override bool OnCancelled(CharacterBehaviorAction action)
+        {
+            if(action is StrongAttackAction) {
+                _strongAttackEffect.StopTrigger();
+                _isStrongAttacking = false;
+
+                GamePlayerBehavior.OnIdle();
 
                 return true;
             }

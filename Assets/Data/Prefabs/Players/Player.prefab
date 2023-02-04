@@ -165,9 +165,9 @@ MonoBehaviour:
   _spineAnimation: {fileID: 2402893151388040641}
   _spineAnimationName: attack_heavy
   _spineAnimationTrack: 0
-  _loop: 0
+  _loop: 1
   _trackStartTime: 0
-  _waitForComplete: 1
+  _waitForComplete: 0
 --- !u!1 &3098663007936971117
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ namespace pdxpartyparrot.ggj2023.Players
 
         protected override bool InputEnabled => base.InputEnabled && !GamePlayer.GamePlayerBehavior.BeaverBehavior.IsDead;
 
+        private bool CanJump => !GamePlayer.GamePlayerBehavior.BeaverBehavior.IsStrongAttacking;
+
         #region Unity Lifecycle
 
         protected override void Awake()
@@ -29,7 +31,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public void OnJumpAction(InputAction.CallbackContext context)
         {
-            if(!IsInputAllowed(context)) {
+            if(!IsInputAllowed(context) || !CanJump) {
                 return;
             }
 
@@ -57,6 +59,8 @@ namespace pdxpartyparrot.ggj2023.Players
 
             if(context.performed) {
                 GamePlayer.PlayerBehavior.ActionPerformed(BeaverBehavior.StrongAttackAction.Default);
+            } else if(context.canceled) {
+                GamePlayer.PlayerBehavior.ActionCancelled(BeaverBehavior.StrongAttackAction.Default);
             }
         }
 

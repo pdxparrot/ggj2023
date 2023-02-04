@@ -15,7 +15,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public BeaverBehavior BeaverBehavior => _beaverBehavior;
 
-        public override bool CanMove => base.CanMove && !BeaverBehavior.IsDead;
+        public override bool CanMove => base.CanMove && !BeaverBehavior.IsDead && !BeaverBehavior.IsStrongAttacking;
 
         public override bool IsAlive => base.IsAlive && !BeaverBehavior.IsDead;
 
