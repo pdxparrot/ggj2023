@@ -11,6 +11,8 @@ namespace pdxpartyparrot.ggj2023.Players
     {
         private Player GamePlayer => (Player)Player;
 
+        protected override bool InputEnabled => base.InputEnabled && !GamePlayer.GamePlayerBehavior.BeaverBehavior.IsDead;
+
         #region Unity Lifecycle
 
         protected override void Awake()

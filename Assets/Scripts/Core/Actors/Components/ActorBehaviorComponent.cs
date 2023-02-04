@@ -96,7 +96,7 @@ namespace pdxpartyparrot.Core.Actors.Components
         [ReadOnly]
         private bool _isAlive;
 
-        public bool IsAlive => _isAlive;
+        public virtual bool IsAlive => _isAlive;
 
         #region Unity Lifecycle
 

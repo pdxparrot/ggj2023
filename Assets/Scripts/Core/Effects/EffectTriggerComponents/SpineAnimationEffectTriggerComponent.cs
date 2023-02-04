@@ -83,7 +83,7 @@ namespace pdxpartyparrot.Core.Effects.EffectTriggerComponents
         private void Awake()
         {
             if(Loop) {
-                Assert.IsFalse(_waitForComplete);
+                Assert.IsFalse(_waitForComplete, "Cannot wait for complete on looping animations");
             }
         }
 

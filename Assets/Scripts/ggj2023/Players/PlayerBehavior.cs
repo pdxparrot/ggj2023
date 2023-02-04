@@ -11,12 +11,33 @@ namespace pdxpartyparrot.ggj2023.Players
     {
         public PlayerBehaviorData GamePlayerBehaviorData => (PlayerBehaviorData)PlayerBehaviorData;
 
+        private BeaverBehavior _beaverBehavior;
+
+        public BeaverBehavior BeaverBehavior => _beaverBehavior;
+
+        public override bool CanMove => base.CanMove && !BeaverBehavior.IsDead;
+
+        public override bool IsAlive => base.IsAlive && !BeaverBehavior.IsDead;
+
+        #region Unity Lifecycle
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            _beaverBehavior = GetComponent<BeaverBehavior>();
+        }
+
+        #endregion
+
         public override void Initialize(ActorBehaviorComponentData behaviorData)
         {
             Assert.IsTrue(Owner is Player);
             Assert.IsTrue(behaviorData is PlayerBehaviorData);
 
             base.Initialize(behaviorData);
+
+            Assert.IsTrue(HasBehaviorComponent<BeaverBehavior>(), "BeaverBehavior must be added to the behavior components!");
         }
     }
 }

@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using pdxpartyparrot.Core.DebugMenu;
 using pdxpartyparrot.Game.Level;
 using pdxpartyparrot.ggj2023.NPCs;
+using pdxpartyparrot.ggj2023.Players;
 
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -61,13 +62,28 @@ namespace pdxpartyparrot.ggj2023.Level
         {
             _debugMenuNode = DebugMenuManager.Instance.AddNode(() => $"ggj2023.Level");
             _debugMenuNode.RenderContentsAction = () => {
-                GUI.enabled = NPCManager.Instance.Vines.Any();
+                GUI.enabled = !GameManager.Instance.IsGameOver && !PlayerManager.Instance.Player.GamePlayerBehavior.BeaverBehavior.IsDead;
+                if(GUILayout.Button("Hit Player")) {
+                    PlayerManager.Instance.Player.GamePlayerBehavior.BeaverBehavior.Damage(10);
+                }
+                if(GUILayout.Button("Kill Player")) {
+                    PlayerManager.Instance.Player.GamePlayerBehavior.BeaverBehavior.Kill();
+                }
+                GUI.enabled = true;
+
+                GUI.enabled = !GameManager.Instance.IsGameOver && NPCManager.Instance.Vines.Any();
+                if(GUILayout.Button("Hit Vine")) {
+                    NPCManager.Instance.Vines.ElementAt(0).Damage(10);
+                }
                 if(GUILayout.Button("Kill Vine")) {
                     NPCManager.Instance.Vines.ElementAt(0).Kill();
                 }
                 GUI.enabled = true;
 
-                GUI.enabled = NPCManager.Instance.Boss != null;
+                GUI.enabled = !GameManager.Instance.IsGameOver && NPCManager.Instance.Boss != null;
+                if(GUILayout.Button("Hit Boss")) {
+                    NPCManager.Instance.Boss.Damage(10);
+                }
                 if(GUILayout.Button("Kill Boss")) {
                     NPCManager.Instance.Boss.Kill();
                 }

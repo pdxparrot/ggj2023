@@ -49,7 +49,6 @@ namespace pdxpartyparrot.ggj2023.NPCs
         public override void UnregisterNPC(INPC npc)
         {
             if(npc is BlackberryMonster) {
-                Assert.IsNotNull(_boss);
                 _boss = null;
             } else if(npc is Vine) {
                 _vines.Remove(npc as Vine);

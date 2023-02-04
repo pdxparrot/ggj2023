@@ -1,6 +1,5 @@
 using System;
 
-using pdxpartyparrot.Core.Util;
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.Players;
 using pdxpartyparrot.ggj2023.Camera;
@@ -15,14 +14,6 @@ namespace pdxpartyparrot.ggj2023.Players
         public PlayerBehavior GamePlayerBehavior => (PlayerBehavior)PlayerBehavior;
 
         private GameViewer PlayerGameViewer => (GameViewer)Viewer;
-
-        [SerializeField]
-        [ReadOnly]
-        private int _health;
-
-        public int Health => _health;
-
-        public bool IsDead => Health <= 0;
 
         #region Unity Lifecycle
 
@@ -64,8 +55,6 @@ namespace pdxpartyparrot.ggj2023.Players
             }
 
             PlayerGameViewer.AddTarget(this);
-
-            _health = PlayerManager.Instance.GamePlayerData.MaxHealth;
 
             return true;
         }

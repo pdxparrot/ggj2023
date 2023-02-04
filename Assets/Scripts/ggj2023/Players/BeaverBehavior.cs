@@ -1,5 +1,6 @@
 using pdxpartyparrot.Core.Effects;
-using pdxpartyparrot.Core.Effects.EffectTriggerComponents;
+using pdxpartyparrot.Core.Util;
+using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.Players.BehaviorComponents;
 
 using UnityEngine;
@@ -38,16 +39,51 @@ namespace pdxpartyparrot.ggj2023.Players
         private EffectTrigger _strongAttackEffect;
 
         [SerializeField]
-        private RumbleEffectTriggerComponent[] _rumbleEffects;
+        private EffectTrigger _hitEffect;
+
+        [SerializeField]
+        private EffectTrigger _deathEffect;
 
         #endregion
 
-        private bool CanAttack => !_attackEffect.IsRunning && !_strongAttackEffect.IsRunning;
+        [SerializeField]
+        [ReadOnly]
+        private int _health;
 
-        public void Initialize()
+        public int Health => _health;
+
+        public bool IsDead => Health <= 0;
+
+        private bool CanAttack => !IsDead && !_attackEffect.IsRunning && !_strongAttackEffect.IsRunning;
+
+        public void Kill()
         {
-            foreach(RumbleEffectTriggerComponent rumble in _rumbleEffects) {
-                rumble.PlayerInput = Owner.PlayerInputHandler.InputHelper;
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Killing player {name}!");
+
+            Damage(_health);
+        }
+
+        public void Damage(int amount)
+        {
+            if(IsDead) {
+                return;
+            }
+
+            Debug.Log($"Player {name} hit for {amount}");
+
+            _health -= amount;
+            if(IsDead) {
+                Debug.Log($"Player {name} is dead!");
+
+                _health = 0;
+
+                _deathEffect.Trigger(() => GameManager.Instance.GameOver());
+            } else {
+                _hitEffect.Trigger(() => GamePlayerBehavior.OnIdle());
             }
         }
 
@@ -74,6 +110,24 @@ namespace pdxpartyparrot.ggj2023.Players
 
                 return true;
             }
+
+            return false;
+        }
+
+        #endregion
+
+        #region Events
+
+        public override bool OnSpawn(SpawnPoint spawnpoint)
+        {
+            _health = PlayerManager.Instance.GamePlayerData.MaxHealth;
+
+            return false;
+        }
+
+        public override bool OnReSpawn(SpawnPoint spawnpoint)
+        {
+            _health = PlayerManager.Instance.GamePlayerData.MaxHealth;
 
             return false;
         }
