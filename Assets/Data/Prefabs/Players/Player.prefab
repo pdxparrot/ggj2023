@@ -765,6 +765,8 @@ GameObject:
   - component: {fileID: 787579418628897083}
   - component: {fileID: 8606223452111802251}
   - component: {fileID: 2672687551389757960}
+  - component: {fileID: 7976636162719745611}
+  - component: {fileID: 5480860587335462759}
   - component: {fileID: 4774946194899664781}
   m_Layer: 10
   m_Name: Behavior
@@ -869,6 +871,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: ce9771e72e1cc7d7cad66339f01aaa41, type: 2}
   _jumpEffect: {fileID: 846183209199834331}
+--- !u!65 &7976636162719745611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454347789793802809}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5480860587335462759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454347789793802809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196433343ab9bef708c33a755d47da57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4774946194899664781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,6 +923,7 @@ MonoBehaviour:
   _hitEffect: {fileID: 552432581946621876}
   _deathEffect: {fileID: 5546970720326339951}
   _health: 0
+  _isStrongAttacking: 0
 --- !u!1 &4799346343771755696
 GameObject:
   m_ObjectHideFlags: 0
