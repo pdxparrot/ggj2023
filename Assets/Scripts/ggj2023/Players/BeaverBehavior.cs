@@ -2,11 +2,14 @@ using pdxpartyparrot.Core.Effects;
 using pdxpartyparrot.Core.Util;
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.Players.BehaviorComponents;
+using pdxpartyparrot.Game.Interactables;
 
 using UnityEngine;
 
 namespace pdxpartyparrot.ggj2023.Players
 {
+    // TODO: make an ActorComponent
+    [RequireComponent(typeof(Interactables3D))]
     public sealed class BeaverBehavior : PlayerBehaviorComponent
     {
         #region Actions
@@ -63,6 +66,19 @@ namespace pdxpartyparrot.ggj2023.Players
         public bool IsStrongAttacking => _isStrongAttacking;
 
         private bool CanAttack => !IsDead && !IsAttacking && !IsStrongAttacking;
+
+        private Interactables _interactables;
+
+        #region Unity Lifecycle
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            _interactables = GetComponent<Interactables>();
+        }
+
+        #endregion
 
         public void Kill()
         {
