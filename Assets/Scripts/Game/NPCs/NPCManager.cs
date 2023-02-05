@@ -92,14 +92,14 @@ namespace pdxpartyparrot.Game.NPCs
 
         #endregion
 
-        public virtual void RegisterNPC(INPC npc)
+        public void RegisterNPC(INPC npc)
         {
             if(_npcs.Add(npc)) {
                 Debug.Log($"Registered NPC {npc.Id}");
             }
         }
 
-        public virtual void UnregisterNPC(INPC npc)
+        public void UnregisterNPC(INPC npc)
         {
             if(_npcs.Remove(npc)) {
                 Debug.Log($"Unregistered NPC {npc.Id}");

@@ -60,7 +60,7 @@ namespace pdxpartyparrot.Game.Characters.NPCs
         [ReadOnly]
         private bool _isPathStale;
 
-        public bool HasPath => _agent.hasPath;
+        public bool HasPath => null != _agent && _agent.hasPath;
 
         public Vector3 NextPosition => _agent.nextPosition;
 

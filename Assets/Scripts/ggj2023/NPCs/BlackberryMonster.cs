@@ -1,6 +1,5 @@
 using System;
 
-using pdxpartyparrot.Core.Util;
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.NPCs;
 
@@ -12,14 +11,6 @@ namespace pdxpartyparrot.ggj2023.NPCs
     public sealed class BlackberryMonster : NPC25D
     {
         public BlackberryMonsterBehavior BlackberryMonsterBehavior => (BlackberryMonsterBehavior)NPCBehavior;
-
-        [SerializeField]
-        [ReadOnly]
-        private int _health;
-
-        public int Health => _health;
-
-        public bool IsDead => Health <= 0;
 
         #region Unity Lifecycle
 
@@ -34,6 +25,8 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         protected override void OnDestroy()
         {
+            // TODO: not really sure this is legit necessary
+            // it's called from OnDeSpawn
             if(NPCManager.HasInstance) {
                 NPCManager.Instance.UnregisterNPC(this);
             }
@@ -50,38 +43,6 @@ namespace pdxpartyparrot.ggj2023.NPCs
             Assert.IsTrue(Behavior is BlackberryMonsterBehavior);
         }
 
-        public void Kill()
-        {
-            if(IsDead) {
-                return;
-            }
-
-            Debug.Log($"Killing boss {name}!");
-
-            Damage(_health);
-        }
-
-        public void Damage(int amount)
-        {
-            if(IsDead) {
-                return;
-            }
-
-            Debug.Log($"Boss {name} hit for {amount}");
-
-            _health -= amount;
-            if(IsDead) {
-                Debug.Log($"Boss {name} is dead!");
-
-                _health = 0;
-                // TODO: animate the death and then despawn
-
-                DeSpawn(false);
-
-                GameManager.Instance.GameOver();
-            }
-        }
-
         #region Spawn
 
         public override bool OnSpawn(SpawnPoint spawnpoint)
@@ -90,15 +51,26 @@ namespace pdxpartyparrot.ggj2023.NPCs
                 return false;
             }
 
-            SetPassive();
+            GameManager.Instance.CurrentLevel.RegisterBoss(this);
 
-            _health = NPCManager.Instance.BossData.MaxHealth;
+            return true;
+        }
+
+        public override bool OnReSpawn(SpawnPoint spawnpoint)
+        {
+            if(!base.OnReSpawn(spawnpoint)) {
+                return false;
+            }
+
+            GameManager.Instance.CurrentLevel.RegisterBoss(this);
 
             return true;
         }
 
         public override void OnDeSpawn()
         {
+            GameManager.Instance.CurrentLevel.UnRegisterBoss(this);
+
             base.OnDeSpawn();
         }
 

@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpawnPointTags:
   - player
-  _types: []
+  _types:
+  - _tag: boss
+    _spawnMethod: 1
+  - _tag: vine
+    _spawnMethod: 1

@@ -83,6 +83,89 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2631451472186526991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4763020105990157119}
+  - component: {fileID: 92682004858094553}
+  - component: {fileID: 6276224087021088410}
+  - component: {fileID: 3352930959492588402}
+  m_Layer: 11
+  m_Name: DeathEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4763020105990157119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631451472186526991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 993464027789203527}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92682004858094553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631451472186526991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64012bd2e54f401d862fb76e1a4a1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerOnComplete: []
+  _components:
+  - {fileID: 6276224087021088410}
+  _isRunning: 0
+  _complete: 0
+--- !u!114 &6276224087021088410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631451472186526991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8d328721d360ab697dd14181cffc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logMessage: '[vine] death'
+  _level: 0
+--- !u!114 &3352930959492588402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631451472186526991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238142d58e5820f73ba1a8f4950c516a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spineAnimation: {fileID: 8220734967214482338}
+  _spineAnimationName: death
+  _spineAnimationTrack: 0
+  _loop: 0
+  _trackStartTime: 0
+  _waitForComplete: 1
 --- !u!1 &3297505348837015673
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +204,9 @@ Transform:
   - {fileID: 5538356854216429925}
   - {fileID: 3712600498958037938}
   - {fileID: 5143276167498390431}
+  - {fileID: 5138857854702581971}
+  - {fileID: 4763020105990157119}
+  - {fileID: 6775536129123733047}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +238,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3297505348837015673}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -270,7 +356,6 @@ MonoBehaviour:
   _stuckCheckCount: 0
   _debugTextTarget: {fileID: 0}
   _debugTextQueue: {fileID: 0}
-  _health: 0
 --- !u!1 &3811878480473833697
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +365,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5538356854216429925}
+  - component: {fileID: 8220734967214482338}
+  - component: {fileID: 899232834411639841}
   m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
@@ -305,6 +392,31 @@ Transform:
   m_Father: {fileID: 993464027789203527}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8220734967214482338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811878480473833697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e0f578bfbcd69e9a3cdf3f5c4b90cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skeletonAnimation: {fileID: 0}
+--- !u!114 &899232834411639841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811878480473833697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922c02ef3173bc526aa490a4b84d4b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4269633731992296775
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
   _behaviorData: {fileID: 0}
-  _spineAnimationHelper: {fileID: 0}
+  _spineAnimationHelper: {fileID: 8220734967214482338}
   _spineSkinHelper: {fileID: 0}
   _spriteAnimationHelper: {fileID: 0}
   _animator: {fileID: 0}
@@ -416,8 +528,11 @@ MonoBehaviour:
   _components: []
   _isGrounded: 0
   _isSliding: 0
-  _idleEffect: {fileID: 0}
+  _idleEffect: {fileID: 831053461284523421}
   _movingEffectTrigger: {fileID: 0}
+  _hitEffect: {fileID: 8854869935249846726}
+  _deathEffect: {fileID: 92682004858094553}
+  _health: 0
 --- !u!1 &8097727331753127108
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +616,172 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8534597997947161411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6775536129123733047}
+  - component: {fileID: 8854869935249846726}
+  - component: {fileID: 2048594746365720797}
+  - component: {fileID: 997790505492400401}
+  m_Layer: 11
+  m_Name: HitEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6775536129123733047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534597997947161411}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 993464027789203527}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8854869935249846726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534597997947161411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64012bd2e54f401d862fb76e1a4a1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerOnComplete: []
+  _components:
+  - {fileID: 2048594746365720797}
+  _isRunning: 0
+  _complete: 0
+--- !u!114 &2048594746365720797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534597997947161411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8d328721d360ab697dd14181cffc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logMessage: '[vine] hit'
+  _level: 0
+--- !u!114 &997790505492400401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534597997947161411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238142d58e5820f73ba1a8f4950c516a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spineAnimation: {fileID: 8220734967214482338}
+  _spineAnimationName: hit
+  _spineAnimationTrack: 0
+  _loop: 0
+  _trackStartTime: 0
+  _waitForComplete: 1
+--- !u!1 &8944256995131465025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5138857854702581971}
+  - component: {fileID: 831053461284523421}
+  - component: {fileID: 988048414621971145}
+  - component: {fileID: 2223646827499706529}
+  m_Layer: 11
+  m_Name: IdleEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5138857854702581971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944256995131465025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 993464027789203527}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831053461284523421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944256995131465025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64012bd2e54f401d862fb76e1a4a1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerOnComplete: []
+  _components:
+  - {fileID: 988048414621971145}
+  _isRunning: 0
+  _complete: 0
+--- !u!114 &988048414621971145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944256995131465025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8d328721d360ab697dd14181cffc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logMessage: '[vine] idle'
+  _level: 0
+--- !u!114 &2223646827499706529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944256995131465025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238142d58e5820f73ba1a8f4950c516a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spineAnimation: {fileID: 8220734967214482338}
+  _spineAnimationName: idle
+  _spineAnimationTrack: 0
+  _loop: 1
+  _trackStartTime: 0
+  _waitForComplete: 0
 --- !u!1001 &3944454255479949540
 PrefabInstance:
   m_ObjectHideFlags: 0

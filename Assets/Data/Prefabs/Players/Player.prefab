@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8d328721d360ab697dd14181cffc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _logMessage: '[player] idl'
+  _logMessage: '[player] hit'
   _level: 0
 --- !u!114 &7472835347950498170
 MonoBehaviour:

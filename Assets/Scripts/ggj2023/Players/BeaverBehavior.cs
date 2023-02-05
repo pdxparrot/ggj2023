@@ -3,6 +3,7 @@ using pdxpartyparrot.Core.Util;
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.Players.BehaviorComponents;
 using pdxpartyparrot.Game.Interactables;
+using pdxpartyparrot.ggj2023.UI;
 
 using UnityEngine;
 
@@ -55,6 +56,10 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public int Health => _health;
 
+        public int MaxHealth => GamePlayerBehavior.GamePlayerBehaviorData.MaxHealth;
+
+        private float HealthPercent => Mathf.Clamp(Health / (float)MaxHealth, 0.0f, 1.0f);
+
         public bool IsDead => Health <= 0;
 
         public bool IsAttacking => _attackEffect.IsRunning;
@@ -105,10 +110,14 @@ namespace pdxpartyparrot.ggj2023.Players
 
                 _health = 0;
 
-                _deathEffect.Trigger(() => GameManager.Instance.GameOver());
+                _deathEffect.Trigger();
+
+                GameManager.Instance.GameOver();
             } else {
                 _hitEffect.Trigger(() => GamePlayerBehavior.OnIdle());
             }
+
+            GameUIManager.Instance.GameGameUI.PlayerHUD.UpdatePlayerHealthPercent(HealthPercent);
         }
 
         #region Actions
@@ -159,14 +168,16 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public override bool OnSpawn(SpawnPoint spawnpoint)
         {
-            _health = PlayerManager.Instance.GamePlayerData.MaxHealth;
+            _health = MaxHealth;
+            GameUIManager.Instance.GameGameUI.PlayerHUD.UpdatePlayerHealthPercent(HealthPercent);
 
             return false;
         }
 
         public override bool OnReSpawn(SpawnPoint spawnpoint)
         {
-            _health = PlayerManager.Instance.GamePlayerData.MaxHealth;
+            _health = MaxHealth;
+            GameUIManager.Instance.GameGameUI.PlayerHUD.UpdatePlayerHealthPercent(HealthPercent);
 
             return false;
         }

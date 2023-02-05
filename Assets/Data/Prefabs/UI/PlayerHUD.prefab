@@ -400,7 +400,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.65
+  m_fontSize: 72
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -515,6 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d591679f1371bcc34bb779e500939b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerHealth: {fileID: 3625424342724211098}
+  _bossHealth: {fileID: 6814369563014195195}
 --- !u!1 &7438986964633884985
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.06659713}
   m_AnchorMax: {x: 0.45275286, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.3896}
+  m_AnchoredPosition: {x: 0, y: -3.3896027}
   m_SizeDelta: {x: -77.82526, y: -20.982307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5819149148645083473
