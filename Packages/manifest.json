@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.esotericsoftware.spine.urp-shaders": "file:E:/From MSI/D drive/Documents/Game Jam/Global Game Jam 2023/com.esotericsoftware.spine.urp-shaders-4.1-2019.1",
     "com.unity.addressables": "1.21.2",
     "com.unity.ai.navigation": "1.1.1",
     "com.unity.assetbundlebrowser": "1.7.0",
