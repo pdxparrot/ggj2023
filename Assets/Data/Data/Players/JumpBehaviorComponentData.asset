@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0f84cadd3f176c59108c6a684031e1, type: 3}
   m_Name: JumpBehaviorComponentData
   m_EditorClassIdentifier: 
-  _jumpHeight: 10
+  _jumpHeight: 6.5
   _jumpParam: OnJump
