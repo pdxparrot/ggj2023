@@ -2,15 +2,20 @@ using System;
 
 using pdxpartyparrot.Core.World;
 using pdxpartyparrot.Game.Characters.NPCs;
+using pdxpartyparrot.Game.Interactables;
 
 using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace pdxpartyparrot.ggj2023.NPCs
 {
-    public sealed class BlackberryMonster : NPC25D
+    public sealed class BlackberryMonster : NPC25D, IInteractable
     {
         public BlackberryMonsterBehavior BlackberryMonsterBehavior => (BlackberryMonsterBehavior)NPCBehavior;
+
+        public bool CanInteract => !BlackberryMonsterBehavior.IsDead;
+
+        public Type InteractableType => GetType();
 
         #region Unity Lifecycle
 

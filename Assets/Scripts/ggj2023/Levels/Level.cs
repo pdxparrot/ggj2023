@@ -112,7 +112,7 @@ namespace pdxpartyparrot.ggj2023.Levels
 
         public void UnRegisterVine(Vine vine)
         {
-            Assert.IsTrue(_vines.Remove(vine));
+            _vines.Remove(vine);
         }
 
         #region Event Handlers

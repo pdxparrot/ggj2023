@@ -15,17 +15,12 @@ namespace pdxpartyparrot.ggj2023.Data.Players
 
         public int MaxHealth => _maxHealth;
 
+        [Space(10)]
+
         [SerializeField]
         private int _attackDamage = 10;
 
         public int AttackDamage => _attackDamage;
-
-        [SerializeField]
-        private int _strongAttackDamage = 20;
-
-        public int StrongAttackDamage => _strongAttackDamage;
-
-        [Space(10)]
 
         [SerializeField]
         private string _attackSpawnVolumeEvent = "attack_spawnvolume";
@@ -36,6 +31,20 @@ namespace pdxpartyparrot.ggj2023.Data.Players
         private string _attackDeSpawnVolumeEvent = "attack_despawnvolume";
 
         public string AttackDeSpawnVolumeEvent => _attackDeSpawnVolumeEvent;
+
+        [Space(10)]
+
+        [SerializeField]
+        private int _strongAttackDamage = 20;
+
+        public int StrongAttackDamage => _strongAttackDamage;
+
+        [SerializeField]
+        private int _strongAttackDamageCooldownMillis = 500;
+
+        public int StrongAttackDamageCooldownMillis => _strongAttackDamageCooldownMillis;
+
+        [Space(10)]
 
         // TODO: VFX / hit impact?
 

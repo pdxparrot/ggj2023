@@ -19,6 +19,8 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         #region Effects
 
+        [Space(10)]
+
         [SerializeField]
         private EffectTrigger _hitEffect;
 
@@ -26,6 +28,10 @@ namespace pdxpartyparrot.ggj2023.NPCs
         private EffectTrigger _deathEffect;
 
         #endregion
+
+        #region Health
+
+        [Space(10)]
 
         [SerializeField]
         [ReadOnly]
@@ -39,6 +45,10 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         public bool IsDead => Health <= 0;
 
+        public bool IsImmune => NPCManager.Instance.NPCsImmune;
+
+        #endregion
+
         public override Vector3 MoveDirection => Vine.MoveDirection;
 
         public override void Initialize(ActorBehaviorComponentData behaviorData)
@@ -51,7 +61,7 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         public void Kill()
         {
-            if(IsDead || NPCManager.Instance.NPCsImmune) {
+            if(IsDead || IsImmune) {
                 return;
             }
 
@@ -62,7 +72,7 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         public void Damage(int amount)
         {
-            if(IsDead || NPCManager.Instance.NPCsImmune) {
+            if(IsDead || IsImmune) {
                 return;
             }
 
@@ -77,6 +87,9 @@ namespace pdxpartyparrot.ggj2023.NPCs
                 _deathEffect.Trigger(() => {
                     // vines hit for extra damage when they die
                     GameManager.Instance.CurrentLevel.Boss.BlackberryMonsterBehavior.Damage(VineBehaviorData.DeathDamage);
+
+                    // TODO: this is temporary since we don't have a death anim
+                    Owner.DeSpawn(false);
                 });
 
                 GameManager.Instance.CurrentLevel.UnRegisterVine(Vine);

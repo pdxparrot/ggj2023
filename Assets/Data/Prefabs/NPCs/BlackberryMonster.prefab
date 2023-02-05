@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 3693867060455518536}
   - component: {fileID: 732734832981615471}
   - component: {fileID: 7134429476527736086}
+  - component: {fileID: 3017271185607525921}
   m_Layer: 11
   m_Name: HitEffect
   m_TagString: Untagged
@@ -395,6 +396,29 @@ MonoBehaviour:
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &3017271185607525921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108156683298967956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e56e7613828c88683e22633cb62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: a8553eec2f2d28949af1fba74a908925, type: 3}
+  _audioSource: {fileID: 0}
+  _loop: 0
+  _waitForComplete: 0
+  _audioTimer:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &3297505348837015673
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993464027789203527}
-  - component: {fileID: 8714965694682085972}
+  - component: {fileID: 5127778051960023508}
   - component: {fileID: 3819955400848053151}
   - component: {fileID: 8402963357748747661}
   - component: {fileID: 268764612208476926}
@@ -439,8 +463,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8714965694682085972
-SphereCollider:
+--- !u!65 &5127778051960023508
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -458,7 +482,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 7, y: 7, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3819955400848053151
 NavMeshAgent:
@@ -617,6 +641,7 @@ Transform:
   m_Children:
   - {fileID: 369292474444260991}
   - {fileID: 4301745493703427518}
+  - {fileID: 5745932185269914459}
   m_Father: {fileID: 993464027789203527}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -53,8 +53,8 @@ namespace pdxpartyparrot.Core.Effects.EffectTriggerComponents
         private void Awake()
         {
             if(_loop) {
-                Assert.IsFalse(_waitForComplete);
-                Assert.IsNotNull(_audioSource);
+                Assert.IsFalse(_waitForComplete, "Cannot wait for complete on looping SFX");
+                Assert.IsNotNull(_audioSource, "Audio source required for looping SFX");
             } else {
                 _audioTimer = TimeManager.Instance.AddTimer();
             }

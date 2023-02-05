@@ -36,7 +36,8 @@ MonoBehaviour:
   _alignMovementWithViewer: 0
   _maxHealth: 100
   _attackDamage: 10
-  _strongAttackDamage: 20
   _attackSpawnVolumeEvent: attack_spawnvolume
   _attackDeSpawnVolumeEvent: attack_despawnvolume
+  _strongAttackDamage: 20
+  _strongAttackDamageCooldownMillis: 1500
   _hitImmunityEvent: immunity

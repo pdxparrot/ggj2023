@@ -8,6 +8,7 @@ namespace pdxpartyparrot.Core.Editor
     public static class EditorUtils
     {
         // this functionality is now available in Unity's menus
+        // Edit -> Clear All PlayerPrefs
         /*[MenuItem("PDX Party Parrot/Reset PlayerPrefs")]
         public static void ResetPlayerPrefs()
         {
