@@ -98,7 +98,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public void Kill()
         {
-            if(IsDead || IsImmune) {
+            if(IsDead || IsImmune || PlayerManager.Instance.PlayersImmune) {
                 return;
             }
 
@@ -109,7 +109,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public void Damage(int amount)
         {
-            if(IsDead || IsImmune) {
+            if(IsDead || IsImmune || PlayerManager.Instance.PlayersImmune) {
                 return;
             }
 

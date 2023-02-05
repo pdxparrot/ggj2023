@@ -52,7 +52,7 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         public void Kill()
         {
-            if(IsDead) {
+            if(IsDead || NPCManager.Instance.NPCsImmune) {
                 return;
             }
 
@@ -63,7 +63,7 @@ namespace pdxpartyparrot.ggj2023.NPCs
 
         public void Damage(int amount)
         {
-            if(IsDead) {
+            if(IsDead || NPCManager.Instance.NPCsImmune) {
                 return;
             }
 
