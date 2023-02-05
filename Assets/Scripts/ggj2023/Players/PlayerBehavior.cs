@@ -11,9 +11,7 @@ namespace pdxpartyparrot.ggj2023.Players
     {
         public PlayerBehaviorData GamePlayerBehaviorData => (PlayerBehaviorData)PlayerBehaviorData;
 
-        private BeaverBehavior _beaverBehavior;
-
-        public BeaverBehavior BeaverBehavior => _beaverBehavior;
+        public BeaverBehavior BeaverBehavior { get; private set; }
 
         public override bool CanMove => base.CanMove && !BeaverBehavior.IsDead && !BeaverBehavior.IsStrongAttacking;
 
@@ -25,7 +23,7 @@ namespace pdxpartyparrot.ggj2023.Players
         {
             base.Awake();
 
-            _beaverBehavior = GetComponent<BeaverBehavior>();
+            BeaverBehavior = GetComponent<BeaverBehavior>();
         }
 
         #endregion

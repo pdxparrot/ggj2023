@@ -34,3 +34,9 @@ MonoBehaviour:
   _verticalLookSpeed: 75
   _maxVerticalRotation: 45
   _alignMovementWithViewer: 0
+  _maxHealth: 100
+  _attackDamage: 10
+  _strongAttackDamage: 20
+  _attackSpawnVolumeEvent: attack_spawnvolume
+  _attackDeSpawnVolumeEvent: attack_despawnvolume
+  _hitImmunityEvent: immunity

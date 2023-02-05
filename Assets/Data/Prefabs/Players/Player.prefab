@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7334258415973705771}
   - component: {fileID: 5142075136956531997}
   - component: {fileID: 1806582461008961456}
+  - component: {fileID: 8879003676501402119}
   m_Layer: 10
   m_Name: StrongAttackEffect
   m_TagString: Untagged
@@ -168,6 +169,19 @@ MonoBehaviour:
   _loop: 1
   _trackStartTime: 0
   _waitForComplete: 0
+--- !u!114 &8879003676501402119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631009340228563866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e759619f5802ac3fbe3c63d9b776cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationEffectTriggerComponent: {fileID: 1806582461008961456}
 --- !u!1 &3098663007936971117
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +194,7 @@ GameObject:
   - component: {fileID: 2513255350393200830}
   - component: {fileID: 8099145129831329882}
   - component: {fileID: 3041260081075403932}
+  - component: {fileID: 9026216090437411174}
   m_Layer: 10
   m_Name: AttackEffect
   m_TagString: Untagged
@@ -252,6 +267,19 @@ MonoBehaviour:
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &9026216090437411174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3098663007936971117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e759619f5802ac3fbe3c63d9b776cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationEffectTriggerComponent: {fileID: 3041260081075403932}
 --- !u!1 &3338581739139464108
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +376,7 @@ GameObject:
   - component: {fileID: 552432581946621876}
   - component: {fileID: 1152671828323916471}
   - component: {fileID: 7472835347950498170}
+  - component: {fileID: 6985003246192092179}
   m_Layer: 10
   m_Name: HitEffect
   m_TagString: Untagged
@@ -420,6 +449,19 @@ MonoBehaviour:
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &6985003246192092179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578967926633133574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d538df8f0cf73c5c993758c69840936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationEffectTriggerComponent: {fileID: 7472835347950498170}
 --- !u!1 &3681511951943731046
 GameObject:
   m_ObjectHideFlags: 0

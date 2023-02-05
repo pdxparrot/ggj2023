@@ -66,6 +66,12 @@ namespace pdxpartyparrot.ggj2023.Players
 
         [SerializeField]
         [ReadOnly]
+        private bool _isImmune;
+
+        public bool IsImmune => _isImmune;
+
+        [SerializeField]
+        [ReadOnly]
         private bool _isStrongAttacking;
 
         public bool IsStrongAttacking => _isStrongAttacking;
@@ -83,11 +89,16 @@ namespace pdxpartyparrot.ggj2023.Players
             _interactables = GetComponent<Interactables>();
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+        }
+
         #endregion
 
         public void Kill()
         {
-            if(IsDead) {
+            if(IsDead || IsImmune) {
                 return;
             }
 
@@ -98,7 +109,7 @@ namespace pdxpartyparrot.ggj2023.Players
 
         public void Damage(int amount)
         {
-            if(IsDead) {
+            if(IsDead || IsImmune) {
                 return;
             }
 
@@ -160,6 +171,41 @@ namespace pdxpartyparrot.ggj2023.Players
             }
 
             return false;
+        }
+
+        #endregion
+
+        #region Animation Events
+
+        public void OnAttackAnimationEvent(string name)
+        {
+            if(GamePlayerBehavior.GamePlayerBehaviorData.AttackSpawnVolumeEvent == name) {
+                Debug.LogWarning("SPAWN ATTACK VOLUME");
+            } else if(GamePlayerBehavior.GamePlayerBehaviorData.AttackDeSpawnVolumeEvent == name) {
+                Debug.LogWarning("DESPAWN ATTACK VOLUME");
+            } else {
+                Debug.LogWarning($"Unhandled attack event: {name}");
+            }
+        }
+
+        public void OnStrongAttackAnimationEvent(string name)
+        {
+            if(GamePlayerBehavior.GamePlayerBehaviorData.AttackSpawnVolumeEvent == name) {
+                Debug.LogWarning("SPAWN STRONG ATTACK VOLUME");
+            } else if(GamePlayerBehavior.GamePlayerBehaviorData.AttackDeSpawnVolumeEvent == name) {
+                Debug.LogWarning("DESPAWN STRONG ATTACK VOLUME");
+            } else {
+                Debug.LogWarning($"Unhandled attack event: {name}");
+            }
+        }
+
+        public void OnHitAnimationEvent(string name)
+        {
+            if(GamePlayerBehavior.GamePlayerBehaviorData.HitImmunityEvent == name) {
+                _isImmune = !_isImmune;
+            } else {
+                Debug.LogWarning($"Unhandled hit event: {name}");
+            }
         }
 
         #endregion
