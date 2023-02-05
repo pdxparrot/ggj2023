@@ -90,6 +90,7 @@ MonoBehaviour:
   _setImageColorEffects: []
   _fadeEffects: []
   _viewerBounds: {fileID: 0}
+  _boss: {fileID: 0}
 --- !u!1 &2113705607660510254
 GameObject:
   m_ObjectHideFlags: 0
