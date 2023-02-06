@@ -204,7 +204,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: 
+  _animationName: base_idle
   loop: 1
   timeScale: 1
 --- !u!1 &2631451472186526991
