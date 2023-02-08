@@ -31,3 +31,6 @@ MonoBehaviour:
   _angularMoveSpeed: 120
   _moveAcceleration: 5
   _stoppingDistance: 0.1
+  _maxHealth: 75
+  _attackDamage: 10
+  _deathDamage: 10
