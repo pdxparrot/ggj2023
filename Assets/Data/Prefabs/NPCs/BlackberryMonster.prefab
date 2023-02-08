@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1164099248372942586}
   - component: {fileID: 5852693904331826684}
   - component: {fileID: 8606405010921421184}
+  - component: {fileID: 7318902897446234176}
   m_Layer: 11
   m_Name: DeathEffect
   m_TagString: Untagged
@@ -49,6 +50,8 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 5852693904331826684}
+  - {fileID: 8606405010921421184}
+  - {fileID: 7318902897446234176}
   _isRunning: 0
   _complete: 0
 --- !u!114 &5852693904331826684
@@ -83,6 +86,29 @@ MonoBehaviour:
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &7318902897446234176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211499483449621045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e56e7613828c88683e22633cb62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: d3474b7d6ec43c04faec0e533004a9af, type: 3}
+  _audioSource: {fileID: 0}
+  _loop: 0
+  _waitForComplete: 0
+  _audioTimer:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &1091500932672190288
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +158,7 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 2868818557963595486}
+  - {fileID: 3983147766089131124}
   _isRunning: 0
   _complete: 0
 --- !u!114 &2868818557963595486
@@ -362,6 +389,7 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 732734832981615471}
+  - {fileID: 7134429476527736086}
   _isRunning: 0
   _complete: 0
 --- !u!114 &732734832981615471
@@ -482,7 +510,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 7, z: 1}
+  m_Size: {x: 8.09, y: 11.37, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3819955400848053151
 NavMeshAgent:
@@ -657,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e0f578bfbcd69e9a3cdf3f5c4b90cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 6727009654429347575}
 --- !u!114 &3147359986196149850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,8 +872,8 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: idle
-  loop: 1
+  _animationName: death
+  loop: 0
   timeScale: 1
 --- !u!1001 &5203662651082812592
 PrefabInstance:

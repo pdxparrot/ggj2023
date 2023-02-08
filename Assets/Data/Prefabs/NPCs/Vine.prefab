@@ -204,7 +204,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   updateTiming: 1
   unscaledTime: 0
-  _animationName: base_idle
+  _animationName: vine_idle
   loop: 1
   timeScale: 1
 --- !u!1 &2631451472186526991
@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 92682004858094553}
   - component: {fileID: 6276224087021088410}
   - component: {fileID: 3352930959492588402}
+  - component: {fileID: 4118380227123622459}
   m_Layer: 11
   m_Name: DeathEffect
   m_TagString: Untagged
@@ -256,6 +257,8 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 6276224087021088410}
+  - {fileID: 3352930959492588402}
+  - {fileID: 4118380227123622459}
   _isRunning: 0
   _complete: 0
 --- !u!114 &6276224087021088410
@@ -285,11 +288,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spineAnimation: {fileID: 8220734967214482338}
-  _spineAnimationName: death
+  _spineAnimationName: vine_death
   _spineAnimationTrack: 0
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &4118380227123622459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631451472186526991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e56e7613828c88683e22633cb62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: a5a9a83955577074998752b8c3a644f1, type: 3}
+  _audioSource: {fileID: 0}
+  _loop: 0
+  _waitForComplete: 0
+  _audioTimer:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &3297505348837015673
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,8 +379,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7, y: 1.5, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!195 &3819955400848053151
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -362,7 +388,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3297505348837015673}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -506,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3811878480473833697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -529,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e0f578bfbcd69e9a3cdf3f5c4b90cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonAnimation: {fileID: 0}
+  _skeletonAnimation: {fileID: 861135234139336324}
 --- !u!114 &899232834411639841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +779,7 @@ GameObject:
   - component: {fileID: 8854869935249846726}
   - component: {fileID: 2048594746365720797}
   - component: {fileID: 997790505492400401}
+  - component: {fileID: 2139246954525823597}
   m_Layer: 11
   m_Name: HitEffect
   m_TagString: Untagged
@@ -790,6 +817,8 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 2048594746365720797}
+  - {fileID: 2139246954525823597}
+  - {fileID: 997790505492400401}
   _isRunning: 0
   _complete: 0
 --- !u!114 &2048594746365720797
@@ -819,11 +848,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spineAnimation: {fileID: 8220734967214482338}
-  _spineAnimationName: hit
+  _spineAnimationName: vine_hit
   _spineAnimationTrack: 0
   _loop: 0
   _trackStartTime: 0
   _waitForComplete: 1
+--- !u!114 &2139246954525823597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534597997947161411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e56e7613828c88683e22633cb62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: a8553eec2f2d28949af1fba74a908925, type: 3}
+  _audioSource: {fileID: 0}
+  _loop: 0
+  _waitForComplete: 0
+  _audioTimer:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &8944256995131465025
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +925,7 @@ MonoBehaviour:
   _triggerOnComplete: []
   _components:
   - {fileID: 988048414621971145}
+  - {fileID: 2223646827499706529}
   _isRunning: 0
   _complete: 0
 --- !u!114 &988048414621971145
@@ -902,7 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spineAnimation: {fileID: 8220734967214482338}
-  _spineAnimationName: idle
+  _spineAnimationName: vine_idle
   _spineAnimationTrack: 0
   _loop: 1
   _trackStartTime: 0
